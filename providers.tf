@@ -10,7 +10,7 @@ terraform {
       source  = "hashicorp/google"
       version = "~> 5.0"
       project = "marat-musaev-training"
-      region  = var.location
+      region  = "us-central1"
     }
     datadog = {
       source  = "DataDog/datadog"
