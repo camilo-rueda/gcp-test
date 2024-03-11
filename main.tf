@@ -10,7 +10,7 @@ resource "random_integer" "r" {
 
 #final test
 resource "google_storage_bucket" "bucket" {
-  name     = "${var.storage_name}${random_integer.r.result}"
+  name     = "${var.storage_name}-${random_integer.r.result}"
   location = var.location
   storage_class = var.storage_class
 }
