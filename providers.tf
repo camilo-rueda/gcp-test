@@ -6,10 +6,10 @@ locals {
 terraform {
   #required_version = "~> 1.3"
   required_providers {
-    google = {
-      source  = "hashicorp/google"
-      version = "~> 5.0"
-    }
+    # google = {
+    #   source  = "hashicorp/google"
+    #   version = "~> 5.0"
+    # }
     datadog = {
       source  = "DataDog/datadog"
       version = "~> 3.25"

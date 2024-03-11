@@ -1,7 +1,7 @@
-# provider "google" {
-#   project = "marat-musaev-training"
-#   region  = var.location
-# }
+provider "google" {
+  project = "marat-musaev-training"
+  region  = var.location
+}
 
 resource "random_integer" "r" {
   min = 1
