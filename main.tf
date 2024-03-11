@@ -8,7 +8,7 @@ resource "random_integer" "r" {
   max = 999999
 }
 
-#final test
+#final test with Camilo
 resource "google_storage_bucket" "bucket" {
   name     = "${var.storage_name}-${random_integer.r.result}"
   location = var.location
