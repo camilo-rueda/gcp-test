@@ -30,7 +30,7 @@ data "google_secret_manager_secret_version" "datadog_app_key" {
   secret  = "service_dd_app_key"
   project = local.gcp_secrets_project_id
 }
-
+#trigger
 provider "datadog" {
   api_key = data.google_secret_manager_secret_version.datadog_api_key.secret_data
   app_key = data.google_secret_manager_secret_version.datadog_app_key.secret_data
