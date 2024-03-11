@@ -43,13 +43,8 @@ variable "storage_class" {
   default     = "STANDARD"
 }
 
-resource "random_integer" "r" {
-  min = 1
-  max = 999999
-}
-
 variable "storage_name" {
   type        = string
   description = "Storage name"
-  default     = "my-bucket${random_integer.r.result}"
+  default     = "my-bucket"
 }
