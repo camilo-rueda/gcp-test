@@ -3,7 +3,7 @@ provider "google" {
   region  = var.location
 }
 
-#try to create a bucket
+#final test
 resource "google_storage_bucket" "bucket" {
   name     = var.storage_name
   location = var.location
