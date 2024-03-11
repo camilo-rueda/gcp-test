@@ -34,7 +34,7 @@ variable "project_prefix" {
 variable "location" {
   type        = string
   description = "Location ex US or EU"
-  default     = "US"
+  default     = "us-central1"
 }
 
 variable "storage_class" {
