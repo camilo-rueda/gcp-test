@@ -4,11 +4,13 @@ locals {
 }
 
 terraform {
-  required_version = "~> 1.3"
+  #required_version = "~> 1.3"
   required_providers {
     google = {
       source  = "hashicorp/google"
       version = "~> 5.0"
+      project = "marat-musaev-training"
+      region  = var.location
     }
     datadog = {
       source  = "DataDog/datadog"
