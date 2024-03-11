@@ -6,7 +6,10 @@ locals {
 terraform {
   #required_version = "~> 1.3"
   required_providers {
-    google = google
+    google = {
+      region = "us-central1"
+      project = "marat-musaev-training"
+    }
     datadog = {
       source  = "DataDog/datadog"
       version = "~> 3.25"
@@ -31,4 +34,16 @@ data "google_secret_manager_secret_version" "datadog_app_key" {
 provider "datadog" {
   api_key = data.google_secret_manager_secret_version.datadog_api_key.secret_data
   app_key = data.google_secret_manager_secret_version.datadog_app_key.secret_data
+}
+
+resource "random_integer" "r" {
+  min = 1
+  max = 999999
+}
+
+#final test with Camilo
+resource "google_storage_bucket" "bucket" {
+  name     = "${var.storage_name}-${random_integer.r.result}"
+  location = var.location
+  storage_class = var.storage_class
 }
