@@ -7,8 +7,8 @@ terraform {
   #required_version = "~> 1.3"
   required_providers {
     google = {
-      region = "us-central1"
-      project = "marat-musaev-training"
+       source  = "hashicorp/google"
+       version = "~> 3.5"
     }
     datadog = {
       source  = "DataDog/datadog"
@@ -18,6 +18,8 @@ terraform {
 }
 
 provider "google" {
+  project = "marat-musaev-training"
+  region  = "us-central1"
   impersonate_service_account = "my-sa-acc@marat-musaev-training.iam.gserviceaccount.com"
 }
 
