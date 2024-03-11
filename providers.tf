@@ -17,11 +17,11 @@ terraform {
   }
 }
 
-provider "google" {
-  project = "marat-musaev-training"
-  region  = "us-central1"
-  impersonate_service_account = "my-sa-acc@marat-musaev-training.iam.gserviceaccount.com"
-}
+# provider "google" {
+#   project = "marat-musaev-training"
+#   region  = "us-central1"
+#   impersonate_service_account = "my-sa-acc@marat-musaev-training.iam.gserviceaccount.com"
+# }
 
 data "google_secret_manager_secret_version" "datadog_api_key" {
   secret  = "service_dd_api_key"
@@ -32,20 +32,20 @@ data "google_secret_manager_secret_version" "datadog_app_key" {
   secret  = "service_dd_app_key"
   project = local.gcp_secrets_project_id
 }
-#trigger
+
 provider "datadog" {
   api_key = data.google_secret_manager_secret_version.datadog_api_key.secret_data
   app_key = data.google_secret_manager_secret_version.datadog_app_key.secret_data
 }
 
-resource "random_integer" "r" {
-  min = 1
-  max = 999999
-}
+# resource "random_integer" "r" {
+#   min = 1
+#   max = 999999
+# }
 
-#final test with Camilo
-resource "google_storage_bucket" "bucket" {
-  name     = "${var.storage_name}-${random_integer.r.result}"
-  location = var.location
-  storage_class = var.storage_class
-}
+# #final test with Camilo
+# resource "google_storage_bucket" "bucket" {
+#   name     = "${var.storage_name}-${random_integer.r.result}"
+#   location = var.location
+#   storage_class = var.storage_class
+# }
