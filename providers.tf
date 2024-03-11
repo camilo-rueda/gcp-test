@@ -9,8 +9,6 @@ terraform {
     google = {
       source  = "hashicorp/google"
       version = "~> 5.0"
-      project = "marat-musaev-training"
-      region  = "us-central1"
     }
     datadog = {
       source  = "DataDog/datadog"
