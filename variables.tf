@@ -46,5 +46,5 @@ variable "storage_class" {
 variable "storage_name" {
   type        = string
   description = "Storage name"
-  default     = "my-bucket199666888"
+  default     = "my-bucket19966688899"
 }
