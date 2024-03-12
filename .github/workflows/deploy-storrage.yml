@@ -17,7 +17,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
-        terraform_version: 0.14.0
+        terraform_version: 1.1.2
 
     - name: Install Google Cloud SDK
       uses: google-github-actions/setup-gcloud@main
@@ -35,5 +35,13 @@ jobs:
     - name: Terraform Init
       run: terraform init
 
+    - name: Terraform Plan
+      run: terraform plan  # Added Terraform plan step
+
     - name: Terraform Apply
+      if: github.ref == 'refs/heads/main'  # Only apply on main branch
       run: terraform apply -auto-approve
+
+    - name: Error Handling
+      if: failure()  # This step will run if any previous step fails
+      run: echo "An error occurred during the workflow execution."
